@@ -15,19 +15,29 @@ int main()
 
 int getSum(int N)
 {
-	int sum=0;
-	int min, max, num;
+	int max, min, sum = 0, num, newsum;
+	for (int i = 0; i < N; i++) {
+		cout << "Enter number of inputs: " << endl;
+		cin >> num;
+		sum += num;
+		
 
-	for(int i=0; i<N; i++)
-		{
-			cout << "Enter your value: ";
-			cin >> num;
-			sum += num;
-			if ( i == 0)
-				min = max = num;
-			min = (min > num)? num : min ;
-			max = (max < num)? num : max ;
+		if (i == 0) {
+			min = max = num;
 		}
-	sum = sum - min - max;
-	return sum;
+
+		if (min > num) {
+			min = num;
+		} else {
+			min = min;
+		}
+
+		if (max < num) {
+			max = num;
+		} else {
+			max = max;
+		}
+	}
+	newsum = sum - min - max;
+	return newsum;
 }
